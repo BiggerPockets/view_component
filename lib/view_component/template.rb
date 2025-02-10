@@ -122,7 +122,7 @@ module ViewComponent
     end
 
     def default_format?
-      format.nil? || format == DEFAULT_FORMAT
+      format.nil? || format == DEFAULT_FORMAT || format == :turbo_stream
     end
     alias_method :html?, :default_format?
 

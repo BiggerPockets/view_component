@@ -1213,6 +1213,14 @@ class RenderingTest < ViewComponent::TestCase
     end
   end
 
+  def test_turbo_stream_format_falls_back_to_html_template
+    with_format(:turbo_stream, :html) do
+      render_inline(TurboStreamFormatComponent.new)
+
+      assert_text("Hi turbo stream!")
+    end
+  end
+
   # In https://github.com/ViewComponent/view_component/issues/2187,
   # the Solidus test suite built mocked components by hand, resulting
   # in a difficult-to-debug error. While this test case is quite narrow,

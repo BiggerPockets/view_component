@@ -95,7 +95,6 @@ module ViewComponent
       @component.silence_redefinition_of_method(:render_template_for)
       @component.class_eval <<-RUBY, __FILE__, __LINE__ + 1
       def render_template_for(variant = nil, format = nil)
-        Rails.logger.info("Rendering template for variant: \#{variant}, format: \#{format}")
         #{method_body}
       end
       RUBY
